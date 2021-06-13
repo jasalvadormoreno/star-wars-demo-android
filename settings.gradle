@@ -1,2 +1,5 @@
 rootProject.name = "star-wars-demo-android"
 include ':app'
+include ':data'
+include ':domain'
+include ':model'
