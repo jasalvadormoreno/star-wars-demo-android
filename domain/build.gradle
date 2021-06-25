@@ -3,10 +3,14 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
     implementation project(':model')
+
+    api "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+
+    implementation "io.reactivex.rxjava3:rxjava:$rootProject.ext.rxJavaVersion"
 }

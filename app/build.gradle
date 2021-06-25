@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -13,7 +14,11 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
+        multiDexEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'API_URL', '"https://swapi.dev/api/"'
     }
 
     buildTypes {
@@ -38,7 +43,14 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ext.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.lifecycleVersion"
 
+    implementation "io.reactivex.rxjava3:rxandroid:$rootProject.ext.rxAndroidVersion"
+
+    implementation "com.google.dagger:hilt-android:$rootProject.ext.hiltVersion"
+    annotationProcessor "com.google.dagger:hilt-compiler:$rootProject.ext.hiltVersion"
+
+    implementation "androidx.multidex:multidex:$rootProject.ext.multidexVersion"
+
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.testExtJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 }

@@ -31,7 +31,15 @@ android {
 dependencies {
     implementation project(':domain')
 
+    implementation "io.reactivex.rxjava3:rxjava:$rootProject.ext.rxJavaVersion"
+
+    api "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpVersion"
+    api "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    api "com.github.akarnokd:rxjava3-retrofit-adapter:$rootProject.ext.rxJavaRetrofitAdapterVersion"
+
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.testExtJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
 }
